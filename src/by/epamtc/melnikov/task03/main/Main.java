@@ -26,22 +26,36 @@ public class Main {
 		array.add(5);
 		array.add(-9);
 		array.add(3);
-		array.add(14);
+		array.add(144);
 		array.add(99);
 		array.add(-99);
-		array.add(15);
+		array.add(125);
 		array.add(53);
 		array.add(55);
 		
 		arrayLogic.shellSort(array);
 		
-		for (int i = 0; i < array.getPointer(); i++) {
-			System.out.println(array.get(i));
+		int[] numbers = array.getArray();
+		int[] numbers1 = numbersLogic.findThreeDigitNumbers(numbers);
+		
+		for (int i = 0; i < numbers1.length; i++) {
+			System.out.println(numbers1[i]);
 		}
 		
 		System.out.println("Asdasd" + arrayLogic.findBiggestElementIndex(array));
 		
 	}
 	
+	public static void runTask0301() {
+		
+	}
+	
+	public static void runTask0302() {
+		
+	}
+	
+	public static void runTask0303() {
+		
+	}
 	
 }
