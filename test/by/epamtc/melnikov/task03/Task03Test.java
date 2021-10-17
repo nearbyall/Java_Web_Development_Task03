@@ -1,4 +1,4 @@
-package by.epamtc.melnikov.task03.test;
+package by.epamtc.melnikov.task03;
 
 import static org.junit.Assert.*;
 

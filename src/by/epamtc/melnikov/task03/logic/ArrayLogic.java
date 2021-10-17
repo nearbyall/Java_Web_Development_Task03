@@ -4,16 +4,24 @@ import by.epamtc.melnikov.task03.bean.Array;
 
 public interface ArrayLogic {
 
-	public void selectionSort(Array array);
+	void selectionSort(Array array);
 	
-	public void insertionSort(Array array);
+	void insertionSort(Array array);
 	
-	public void shellSort(Array array);
+	void shellSort(Array array);
 	
-	public int binarySearch(Array array, int key);
+	int binarySearch(Array array, int key);
 	
-	public int findBiggestElementIndex(Array array);
+	int findBiggestElement(Array array);
 	
-	public int findSmallestElementIndex(Array array);
+	int findBiggestElement(int[] array);
+	
+	int findSmallestElement(Array array);
+	
+	int findSmallestElement(int[] array);
+	
+	int findSum(Array array);
+	
+	int findSum(int[] array);
 	
 }

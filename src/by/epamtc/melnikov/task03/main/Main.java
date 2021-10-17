@@ -1,7 +1,9 @@
 package by.epamtc.melnikov.task03.main;
 
 import by.epamtc.melnikov.task03.bean.Array;
+import by.epamtc.melnikov.task03.constant.StringConstants;
 import by.epamtc.melnikov.task03.logic.ArrayLogic;
+import by.epamtc.melnikov.task03.logic.JaggedArrayLogic;
 import by.epamtc.melnikov.task03.logic.LogicProvider;
 import by.epamtc.melnikov.task03.logic.NumbersLogic;
 import by.epamtc.melnikov.task03.view.ConsoleInput;
@@ -16,11 +18,29 @@ public class Main {
 		
 		ArrayLogic arrayLogic = logicProvider.getArrayLogic();
 		NumbersLogic numbersLogic = logicProvider.getNumbersLogic();
+		JaggedArrayLogic jaggedArrayLogic = logicProvider.getJaggedArrayLogic();
 		
 		ConsoleProvider consoleProvider = ConsoleProvider.getInstance();
 		
 		ConsoleInput consoleInput = consoleProvider.getConsoleInput();
 		ConsoleOutput consoleOutput = consoleProvider.getConsoleOutput();
+		
+		int[][] jaggedArray = new int[5][];
+		jaggedArray[0] = new int[]{1, 5, -99, 2, 123, 43};
+		jaggedArray[1] = new int[]{1234, 5, -2, 2, 123};
+		jaggedArray[2] = new int[]{1, -17, -19, 2, 355, 43};
+		jaggedArray[3] = new int[]{1, 5, -1, 2};
+		jaggedArray[4] = new int[]{1, 5, -99, 2, 123, 43, 999, 23499};
+		
+		jaggedArrayLogic.sortByParam(jaggedArray, StringConstants.ASCENDING_SORT_BY_MAX);
+		
+		for (int i = 0; i < jaggedArray.length; i++) {
+			for (int j = 0; j < jaggedArray[i].length; j++) {
+				System.out.print(" " + jaggedArray[i][j]);
+			}
+			System.out.println("\n");
+		}
+		
 		
 		Array array = new Array();
 		array.add(5);
@@ -42,7 +62,7 @@ public class Main {
 			System.out.println(numbers1[i]);
 		}
 		
-		System.out.println("Asdasd" + arrayLogic.findBiggestElementIndex(array));
+		System.out.println("Asdasd" + arrayLogic.findSum(array));
 		
 	}
 	

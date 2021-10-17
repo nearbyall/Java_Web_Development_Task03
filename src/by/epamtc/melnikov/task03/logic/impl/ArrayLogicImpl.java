@@ -10,20 +10,20 @@ public class ArrayLogicImpl implements ArrayLogic {
 		
 		for (int i = 0; i < array.getPointer(); i++) {
 			
-            int pos = i;
-            int min = array.get(i);
+			int pos = i;
+        	int min = array.get(i);
             
-            for (int j = i + 1; j < array.getPointer(); j++) {
-                if (array.get(j) < min) {
-                    pos = j;
-                    min = array.get(j);
-                }
-            }
+        	for (int j = i + 1; j < array.getPointer(); j++) {
+        		if (array.get(j) < min) {
+        			pos = j;
+        			min = array.get(j);
+            	}
+        	}
             
-            array.set(pos, array.get(i));
-            array.set(i, min);
+        	array.set(pos, array.get(i));
+        	array.set(i, min);
             
-        }
+		}
 		
 	}
 
@@ -98,13 +98,27 @@ public class ArrayLogicImpl implements ArrayLogic {
 	}
 
 	@Override
-	public int findBiggestElementIndex(Array array) {
+	public int findBiggestElement(Array array) {
 		
-		int biggestElement = array.get(0);
+		return findBiggestElement(array.getArray());
+		
+	}
 
-		for (int i = 0; i < array.getPointer(); i++) {
-			if (array.get(i) > biggestElement) {
-				biggestElement = array.get(i);
+	@Override
+	public int findSmallestElement(Array array) {
+		
+		return findSmallestElement(array.getArray());
+
+	}
+
+	@Override
+	public int findBiggestElement(int[] array) {
+
+		int biggestElement = array[0];
+		
+		for (int i = 0; i < array.length; i++) {
+			if (array[i] > biggestElement) {
+				biggestElement = array[i];
 			}
 		}
 		
@@ -113,18 +127,38 @@ public class ArrayLogicImpl implements ArrayLogic {
 	}
 
 	@Override
-	public int findSmallestElementIndex(Array array) {
+	public int findSmallestElement(int[] array) {
 		
-		int smallestElement = array.get(0);
-
-		for (int i = 0; i < array.getPointer(); i++) {
-			if (array.get(i) > smallestElement) {
-				smallestElement = array.get(i);
+		int smallestElement = array[0];
+		
+		for (int i = 0; i < array.length; i++) {
+			if (array[i] < smallestElement) {
+				smallestElement = array[i];
 			}
 		}
 		
 		return smallestElement;
+		
+	}
 
+	@Override
+	public int findSum(Array array) {
+		
+		return findSum(array.getArray());
+		
+	}
+
+	@Override
+	public int findSum(int[] array) {
+		
+		int sum = 0;
+		
+		for (int i = 0; i < array.length; i++) {
+			sum += array[i];
+		}
+		
+		return sum;
+		
 	}
 
 }
