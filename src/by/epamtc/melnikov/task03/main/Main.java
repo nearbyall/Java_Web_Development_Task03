@@ -12,7 +12,7 @@ import by.epamtc.melnikov.task03.view.ConsoleOutput;
 public class Main {
 	
 	public static void main(String[] args) {
-		
+
 		runTask0301();
 		
 		runTask0302();
