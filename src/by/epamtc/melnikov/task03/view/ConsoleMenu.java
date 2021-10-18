@@ -18,7 +18,6 @@ public abstract class ConsoleMenu {
 			choise = ConsoleInput.enterInteger();
 		} while (choise < 0 || choise > 7); 
 		
-		
 		return choise;
 		
 	}
@@ -94,6 +93,15 @@ public abstract class ConsoleMenu {
 					break;	
 			}
 		} while (choise != 0);
+		
 	}
 	
+	public static void choiseProccesingTask0302(int[][] jaggedArray) {
+		
+	}
+	
+	public static void choiseProccesingTask0303(String text) {
+		
+	}
+		
 }

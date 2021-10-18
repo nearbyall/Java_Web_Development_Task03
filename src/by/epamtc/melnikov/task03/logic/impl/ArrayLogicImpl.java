@@ -11,17 +11,17 @@ public class ArrayLogicImpl implements ArrayLogic {
 		for (int i = 0; i < array.getPointer(); i++) {
 			
 			int pos = i;
-        	int min = array.get(i);
+			int min = array.get(i);
             
-        	for (int j = i + 1; j < array.getPointer(); j++) {
-        		if (array.get(j) < min) {
-        			pos = j;
-        			min = array.get(j);
-            	}
-        	}
+			for (int j = i + 1; j < array.getPointer(); j++) {
+				if (array.get(j) < min) {
+					pos = j;
+					min = array.get(j);
+				}
+			}
             
-        	array.set(pos, array.get(i));
-        	array.set(i, min);
+			array.set(pos, array.get(i));
+			array.set(i, min);
             
 		}
 		
@@ -58,17 +58,17 @@ public class ArrayLogicImpl implements ArrayLogic {
 		
 		while (gap >= 1) {
 			
-		    for (int right = 0; right < array.getPointer(); right++) {
+			for (int right = 0; right < array.getPointer(); right++) {
 
-		       for (int c = right - gap; c >= 0; c -= gap) {
-		           if (array.get(c) > array.get(c + gap)) {
-		               array.swap(c, c + gap);
-		           }
-		       }
-		       
-		    }
+				for (int c = right - gap; c >= 0; c -= gap) {
+					if (array.get(c) > array.get(c + gap)) {
+						array.swap(c, c + gap);
+					}
+				}
+		  
+			}
 		    
-		    gap = gap / 2;
+			gap = gap / 2;
 		}
 		
 	}
@@ -77,23 +77,23 @@ public class ArrayLogicImpl implements ArrayLogic {
 	public int binarySearch(Array sortedArray, int key) {
 		
 		int firstIndex = 0;
-	    int lastIndex = sortedArray.getPointer() - 1;
+		int lastIndex = sortedArray.getPointer() - 1;
 	    
-	    while(firstIndex <= lastIndex) {
+		while(firstIndex <= lastIndex) {
 	    	
-	        int middleIndex = (firstIndex + lastIndex) / 2;
+			int middleIndex = (firstIndex + lastIndex) / 2;
 	        
-	        if (sortedArray.get(middleIndex) == key) {
-	            return middleIndex;
-	        } else if (sortedArray.get(middleIndex) < key) {
-	        	firstIndex = middleIndex + 1;
-	        } else if (sortedArray.get(middleIndex) > key) {
-	        	lastIndex = middleIndex - 1;
-	        }	            
+			if (sortedArray.get(middleIndex) == key) {
+				return middleIndex;
+			} else if (sortedArray.get(middleIndex) < key) {
+				firstIndex = middleIndex + 1;
+			} else if (sortedArray.get(middleIndex) > key) {
+				lastIndex = middleIndex - 1;
+			}	            
 
-	    }
+		}
 	    
-	    return -1;
+		return -1;
 
 	}
 

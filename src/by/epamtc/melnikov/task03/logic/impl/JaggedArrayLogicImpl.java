@@ -14,51 +14,51 @@ public class JaggedArrayLogicImpl implements JaggedArrayLogic {
 		ArrayLogic arrayLogic = provider.getArrayLogic();
 		
 		boolean isSorted = false;
-        while(!isSorted) {
-            isSorted = true;
-            for (int i = 0; i < jaggedArray.length - 1; i++) {
+		while(!isSorted) {
+			isSorted = true;
+			for (int i = 0; i < jaggedArray.length - 1; i++) {
             	
-            	int firstElement;
-            	int secondElement;
+				int firstElement;
+				int secondElement;
             	
-            	switch(param) {
-            		case StringConstants.ASCENDING_SORT_BY_MAX:
-            			firstElement = arrayLogic.findBiggestElement(jaggedArray[i]);
-                    	secondElement = arrayLogic.findBiggestElement(jaggedArray[i + 1]);
-                    	if(firstElement > secondElement){
-                            isSorted = false;
-                            swap(jaggedArray, i, i + 1);
-                        }
-                		break;
+				switch(param) {
+				case StringConstants.ASCENDING_SORT_BY_MAX:
+						firstElement = arrayLogic.findBiggestElement(jaggedArray[i]);
+						secondElement = arrayLogic.findBiggestElement(jaggedArray[i + 1]);
+						if(firstElement > secondElement){
+							isSorted = false;
+							swap(jaggedArray, i, i + 1);
+						}
+						break;
             		case StringConstants.ASCENDING_SORT_BY_MIN:
-            			firstElement = arrayLogic.findSmallestElement(jaggedArray[i]);
-                    	secondElement = arrayLogic.findSmallestElement(jaggedArray[i + 1]);
-                    	if(firstElement > secondElement){
-                            isSorted = false;
-                            swap(jaggedArray, i, i + 1);
-                        }
-                		break;
-            		case StringConstants.ASCENDING_SORT_BY_SUM:
-            			firstElement = arrayLogic.findSum(jaggedArray[i]);
-                    	secondElement = arrayLogic.findSum(jaggedArray[i + 1]);
-                    	if(firstElement > secondElement){
-                            isSorted = false;
-                            swap(jaggedArray, i, i + 1);
-                        }
-                		break;
-            		case StringConstants.DESCENDING_SORT_BY_MAX:
-            			firstElement = arrayLogic.findBiggestElement(jaggedArray[i]);
-                    	secondElement = arrayLogic.findBiggestElement(jaggedArray[i + 1]);
-                    	if(firstElement < secondElement){
-                            isSorted = false;
-                            swap(jaggedArray, i, i + 1);
-                        }
-                		break;
-            		case StringConstants.DESCENDING_SORT_BY_MIN:
-            			firstElement = arrayLogic.findSmallestElement(jaggedArray[i]);
-                    	secondElement = arrayLogic.findSmallestElement(jaggedArray[i + 1]);
-                    	if(firstElement < secondElement){
-                            isSorted = false;
+						firstElement = arrayLogic.findSmallestElement(jaggedArray[i]);
+						secondElement = arrayLogic.findSmallestElement(jaggedArray[i + 1]);
+						if(firstElement > secondElement){
+							isSorted = false;
+							swap(jaggedArray, i, i + 1);
+						}
+						break;
+					case StringConstants.ASCENDING_SORT_BY_SUM:
+						firstElement = arrayLogic.findSum(jaggedArray[i]);
+						secondElement = arrayLogic.findSum(jaggedArray[i + 1]);
+						if(firstElement > secondElement){
+							isSorted = false;
+							swap(jaggedArray, i, i + 1);
+						}
+						break;
+					case StringConstants.DESCENDING_SORT_BY_MAX:
+						firstElement = arrayLogic.findBiggestElement(jaggedArray[i]);
+						secondElement = arrayLogic.findBiggestElement(jaggedArray[i + 1]);
+						if(firstElement < secondElement){
+							isSorted = false;
+							swap(jaggedArray, i, i + 1);
+						}
+						break;
+					case StringConstants.DESCENDING_SORT_BY_MIN:
+						firstElement = arrayLogic.findSmallestElement(jaggedArray[i]);
+						secondElement = arrayLogic.findSmallestElement(jaggedArray[i + 1]);
+						if(firstElement < secondElement){
+							isSorted = false;
                             swap(jaggedArray, i, i + 1);
                         }
                 		break;
@@ -68,10 +68,10 @@ public class JaggedArrayLogicImpl implements JaggedArrayLogic {
                     	if(firstElement < secondElement){
                             isSorted = false;
                             swap(jaggedArray, i, i + 1);
-                        }
-                		break;
-                	default:
-                		break;
+                    	}
+                    	break;
+            		default:
+            			break;
             	}
             }
         }

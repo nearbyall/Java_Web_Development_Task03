@@ -11,20 +11,18 @@ public class StringLogicImpl implements StringLogic {
 	
 		StringBuilder sb = new StringBuilder();
 		
-        if (text != null && text.length() > 0 && index > 0) {
-            for (String word : text.split(" ")) {
-                if (word.length() >= index) {
-                    sb.append(word.substring(0, index - 1)).append(symbol).append(word.substring(index, word.length()));
-                } else {
-                    sb.append(word);
-                }
-                sb.append(" ");
-            }
-        }
+		if (text != null && text.length() > 0 && index > 0) {
+			for (String word : text.split(" ")) {
+				if (word.length() >= index) {
+					sb.append(word.substring(0, index - 1)).append(symbol).append(word.substring(index, word.length()));
+				} else {
+					sb.append(word);
+				}
+				sb.append(" ");
+			}
+		}
         
-        
-        
-        return sb.toString();
+		return sb.toString();
 		
 	}
 
@@ -35,11 +33,11 @@ public class StringLogicImpl implements StringLogic {
 		char character;
 		
 		for (int i = 0; i < text.length(); i++) {
-            character = text.charAt(i);
-            if ((character > 64 && character < 91) || (character > 96 && character < 123) || (character == ' ')) {
-                sb.append(character);
-            }
-        }
+			character = text.charAt(i);
+			if ((character > 64 && character < 91) || (character > 96 && character < 123) || (character == ' ')) {
+				sb.append(character);
+			}
+		}
 		
 		return sb.toString();
 		
@@ -48,34 +46,34 @@ public class StringLogicImpl implements StringLogic {
 	@Override
 	public String removeConsonantWords(String text, int length) {
 		
-		 	Set<Character> consonants = Set.of('q', 'w', 'r', 't', 'p', 's', 'd',
+		Set<Character> consonants = Set.of('q', 'w', 'r', 't', 'p', 's', 'd',
 		 			'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm');
-	        StringBuilder sb = new StringBuilder();
-	        char c;
-	        int wordBeginning = 0;
-	        int wordEnding = 0;
-	        int indexCorrection = 0;
+		StringBuilder sb = new StringBuilder();
+		char character;
+		int wordBegin = 0;
+		int wordEnd = 0;
+		int indexCorrection = 0;
 
-	        for (int i = 0; i < text.length(); i++) {
-	            c = text.charAt(i);
-	            if (c == ' ') {
-	                wordEnding = i - 1;
-	                if ((wordEnding - wordBeginning + 1 == length) && consonants.contains(text.charAt(wordBeginning))) {
-	                    replaceWithSubstring(wordBeginning - indexCorrection, wordEnding - indexCorrection, "", sb);
-	                    indexCorrection += length;
-	                }
-	                wordBeginning = i + 1;
-	                sb.append(" ");
-	            } else {
-	                sb.append(c);
-	                wordEnding++;
-	            }
-	        }
-	        if ((wordEnding - wordBeginning + 1 == length) && consonants.contains(text.charAt(wordBeginning))) {
-	            replaceWithSubstring(wordBeginning - indexCorrection, wordEnding - indexCorrection, "", sb);
-	        }
+		for (int i = 0; i < text.length(); i++) {
+			character = text.charAt(i);
+			if (character == ' ') {
+				wordEnd = i - 1;
+				if ((wordEnd - wordBegin + 1 == length) && consonants.contains(text.charAt(wordBegin))) {
+					replaceWithSubstring(wordBegin - indexCorrection, wordEnd - indexCorrection, "", sb);
+					indexCorrection += length;
+				}
+				wordBegin = i + 1;
+				sb.append(" ");
+			} else {
+				sb.append(character);
+				wordEnd++;
+			}
+		}
+		if ((wordEnd - wordBegin + 1 == length) && consonants.contains(text.charAt(wordBegin))) {
+			replaceWithSubstring(wordBegin - indexCorrection, wordEnd - indexCorrection, "", sb);
+		}
 
-	        return sb.toString();
+		return sb.toString();
 	        
 	}
 
@@ -124,34 +122,34 @@ public class StringLogicImpl implements StringLogic {
 	@Override
 	public String replaceWordsWithSubstring(String text, String replacement, int length) {
 	
-		int wordBeginning = 0;
-        int wordEnding = 0;
-        StringBuilder sb = new StringBuilder();
-        int amountOfReplaced = 0;
-        int indexCorrection = replacement.length() - length + amountOfReplaced;
-        char c;
+		int wordBegin = 0;
+		int wordEnd = 0;
+		StringBuilder sb = new StringBuilder();
+		int replacedCount = 0;
+		int indexCorrection = replacement.length() - length + replacedCount;
+		char c;
 
-        for (int i = 0; i < text.length(); i++) {
-            c = text.charAt(i);
-            if (c == ' ') {
-                wordEnding = i - 1;
-                if (wordEnding - wordBeginning + 1 == length) {
-                    replaceWithSubstring(wordBeginning + indexCorrection * amountOfReplaced,
-                    		wordEnding + indexCorrection * amountOfReplaced, replacement, sb);
-                    amountOfReplaced++;
-                }
-                wordBeginning = i + 1;
-                sb.append(" ");
-            } else {
-                sb.append(c);
-                wordEnding++;
-            }
-        }
-        if (wordEnding - wordBeginning == length) {
-            replaceWithSubstring(wordBeginning, wordEnding, replacement, sb);
-        }
+		for (int i = 0; i < text.length(); i++) {
+			c = text.charAt(i);
+			if (c == ' ') {
+				wordEnd = i - 1;
+				if (wordEnd - wordBegin + 1 == length) {
+					replaceWithSubstring(wordBegin + indexCorrection * replacedCount,
+							wordEnd + indexCorrection * replacedCount, replacement, sb);
+					replacedCount++;
+				}
+				wordBegin = i + 1;
+				sb.append(" ");
+			} else {
+				sb.append(c);
+				wordEnd++;
+			}
+		}
+		if (wordEnd - wordBegin == length) {
+			replaceWithSubstring(wordBegin, wordEnd, replacement, sb);
+		}
 
-        return sb.toString();
+		return sb.toString();
 		
 	}
 	
@@ -159,7 +157,7 @@ public class StringLogicImpl implements StringLogic {
 	public void replaceWithSubstring(int start, int end, String replacement, StringBuilder original) {
 		
 		original.delete(start, end + 1);
-        original.insert(start, replacement);
+		original.insert(start, replacement);
         
 	}
 

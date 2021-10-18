@@ -2,9 +2,6 @@ package by.epamtc.melnikov.task03.main;
 
 import by.epamtc.melnikov.task03.bean.Array;
 import by.epamtc.melnikov.task03.constant.StringConstants;
-import by.epamtc.melnikov.task03.logic.ArrayLogic;
-import by.epamtc.melnikov.task03.logic.LogicProvider;
-import by.epamtc.melnikov.task03.logic.NumbersLogic;
 import by.epamtc.melnikov.task03.view.ConsoleInput;
 import by.epamtc.melnikov.task03.view.ConsoleMenu;
 import by.epamtc.melnikov.task03.view.ConsoleOutput;
