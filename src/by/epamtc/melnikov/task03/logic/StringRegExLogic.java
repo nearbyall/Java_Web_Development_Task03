@@ -1,6 +1,6 @@
 package by.epamtc.melnikov.task03.logic;
 
-public interface StringLogic {
+public interface StringRegExLogic {
 
 	String replaseSymbol(String text, int index, char symbol);
 	
@@ -13,7 +13,5 @@ public interface StringLogic {
 	String addSpaces(String text);
 	
 	String replaceWordsWithSubstring(String text, String replacement, int length);
-	
-	void replaceWithSubstring(int start, int end, String replacement, StringBuilder original);
 	
 }
