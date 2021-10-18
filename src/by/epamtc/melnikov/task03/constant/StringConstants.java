@@ -10,15 +10,15 @@ public abstract class StringConstants {
 	public static final String DESCENDING_SORT_BY_SUM = "DESCENDING_SORT_BY_SUM";
 	
 	public static final String ENTER_INTEGER = "Введите целое число: ";
-    public static final String ENTER_STRING = "Введите целое строку: ";
-    public static final String ENTER_ARRAY_CAPASITY = "Введите размерность массива";
-    public static final String ENTER_ARRAY_ELEMENTS = "Введите элементы массива";
+	public static final String ENTER_STRING = "Введите целое строку: ";
+	public static final String ENTER_ARRAY_CAPASITY = "Введите размерность массива";
+	public static final String ENTER_ARRAY_ELEMENTS = "Введите элементы массива";
 	
-    public static final String MAX_ELEMENT = "\nМаксимальный элемент: ";
-    public static final String MIN_ELEMENT = "\nМинимальный элемент: ";
-    public static final String FIBONACCI_NUMBERS = "\nЧисла Фибонначи: ";
-    public static final String PRIME_NUMBERS = "\nПростые числа: ";
-    public static final String UNIQUE_THREE_DIGIT_NUMBERS = "\nУникальные трехзначные числа: ";
+	public static final String MAX_ELEMENT = "\nМаксимальный элемент: ";
+	public static final String MIN_ELEMENT = "\nМинимальный элемент: ";
+	public static final String FIBONACCI_NUMBERS = "\nЧисла Фибонначи: ";
+	public static final String PRIME_NUMBERS = "\nПростые числа: ";
+	public static final String UNIQUE_THREE_DIGIT_NUMBERS = "\nУникальные трехзначные числа: ";
     
 	public static final String ARRAY_MENU = "\tПрограмма для работы с целочисленным массивом\t\n" +
 											"Введите 1 для сортировки массива методом вставок\n" +
