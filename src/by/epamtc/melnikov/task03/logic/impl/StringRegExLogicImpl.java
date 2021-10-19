@@ -71,4 +71,19 @@ public class StringRegExLogicImpl implements StringRegExLogic {
     
 	}
 
+	@Override
+	public String replaseWordWithSubstring(String text, int lenght, String replasement) {
+
+		Pattern pattern = Pattern.compile("\\b[А-Яа-я].{" + (lenght - 1) + "}\\b");
+
+		Matcher matcher = pattern.matcher(text);
+		StringBuilder sb = new StringBuilder(text);
+		while (matcher.find()){
+			sb.delete(0, lenght).insert(0, replasement);
+            }
+
+        return sb.toString();
+
+	}
+
 }

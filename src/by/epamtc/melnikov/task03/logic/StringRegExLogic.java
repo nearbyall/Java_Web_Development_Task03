@@ -10,4 +10,6 @@ public interface StringRegExLogic {
 	
 	String correctWord(String word);
 	
+	String replaseWordWithSubstring(String text, int lenght, String replasement);
+	
 }
