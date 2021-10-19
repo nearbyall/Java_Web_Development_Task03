@@ -76,7 +76,7 @@ public class JaggedArrayLogicImpl implements JaggedArrayLogic {
             }
         }
 	}
-	
+
 	private void swap(int[][] jaggedArray, int firstIndex, int secondIndex) {
 		
 		int[] temp = jaggedArray[firstIndex];

@@ -10,8 +10,4 @@ public interface StringRegExLogic {
 	
 	String correctWord(String word);
 	
-	String addSpaces(String text);
-	
-	String replaceWordsWithSubstring(String text, String replacement, int length);
-	
 }

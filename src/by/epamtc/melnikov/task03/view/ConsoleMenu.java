@@ -3,8 +3,10 @@ package by.epamtc.melnikov.task03.view;
 import by.epamtc.melnikov.task03.bean.Array;
 import by.epamtc.melnikov.task03.constant.StringConstants;
 import by.epamtc.melnikov.task03.logic.ArrayLogic;
+import by.epamtc.melnikov.task03.logic.JaggedArrayLogic;
 import by.epamtc.melnikov.task03.logic.LogicProvider;
 import by.epamtc.melnikov.task03.logic.NumbersLogic;
+import by.epamtc.melnikov.task03.logic.StringLogic;
 
 public abstract class ConsoleMenu {
 
@@ -12,11 +14,7 @@ public abstract class ConsoleMenu {
 		
 		System.out.println(StringConstants.ARRAY_MENU);
 		
-		int choise = 0;
-		
-		do {
-			choise = ConsoleInput.enterInteger();
-		} while (choise < 0 || choise > 7); 
+		int choise = ConsoleInput.enterChoiseTask0301();
 		
 		return choise;
 		
@@ -26,12 +24,7 @@ public abstract class ConsoleMenu {
 		
 		System.out.println(StringConstants.JAGGED_ARRAY_MENU);
 		
-		int choise = 0;
-		
-		do {
-			choise = ConsoleInput.enterInteger();
-		} while (choise < 0 || choise > 6); 
-		
+		int choise = ConsoleInput.enterChoiseTask0302();
 		
 		return choise;
 		
@@ -41,12 +34,7 @@ public abstract class ConsoleMenu {
 		
 		System.out.println(StringConstants.STRING_MENU);
 		
-		int choise = 0;
-		
-		do {
-			choise = ConsoleInput.enterInteger();
-		} while (choise < 0 || choise > 5); 
-		
+		int choise = ConsoleInput.enterChoiseTask0303();
 		
 		return choise;
 		
@@ -98,9 +86,81 @@ public abstract class ConsoleMenu {
 	
 	public static void choiseProccesingTask0302(int[][] jaggedArray) {
 		
+		LogicProvider logicProvider = LogicProvider.getInstance();
+		JaggedArrayLogic jaggedArrayLogic = logicProvider.getJaggedArrayLogic();
+		
+		int choise = 0;
+		
+		do {
+			choise = ConsoleMenu.enterChoiseJaggedArrayMenu();
+			switch (choise) {
+				case 1:
+					jaggedArrayLogic.sortByParam(jaggedArray, StringConstants.ASCENDING_SORT_BY_MAX);
+					ConsoleOutput.printIntJaggedArray(jaggedArray);
+					break;
+				case 2:
+					jaggedArrayLogic.sortByParam(jaggedArray, StringConstants.ASCENDING_SORT_BY_MIN);
+					ConsoleOutput.printIntJaggedArray(jaggedArray);
+					break;
+				case 3:
+					jaggedArrayLogic.sortByParam(jaggedArray, StringConstants.ASCENDING_SORT_BY_SUM);
+					ConsoleOutput.printIntJaggedArray(jaggedArray);
+					break;
+				case 4:
+					jaggedArrayLogic.sortByParam(jaggedArray, StringConstants.DESCENDING_SORT_BY_MAX);
+					ConsoleOutput.printIntJaggedArray(jaggedArray);
+					break;
+				case 5:
+					jaggedArrayLogic.sortByParam(jaggedArray, StringConstants.DESCENDING_SORT_BY_MIN);
+					ConsoleOutput.printIntJaggedArray(jaggedArray);
+					break;
+				case 6:
+					jaggedArrayLogic.sortByParam(jaggedArray, StringConstants.DESCENDING_SORT_BY_SUM);
+					ConsoleOutput.printIntJaggedArray(jaggedArray);
+					break;
+			}
+		} while (choise != 0);
+		
 	}
 	
 	public static void choiseProccesingTask0303(String text) {
+		
+		LogicProvider logicProvider = LogicProvider.getInstance();
+		StringLogic stringLogic = logicProvider.getStringLogic();
+		
+		int choise = 0;
+		
+		do {
+			choise = ConsoleMenu.enterChoiseStringMenu();
+			switch (choise) {
+				case 1:
+					ConsoleOutput.printMessage(StringConstants.ENTER_CHARACTER);
+					char symbol = ConsoleInput.enterCharacter();
+					ConsoleOutput.printMessage(StringConstants.ENTER_INDEX);
+					int k = ConsoleInput.enterInteger();
+					ConsoleOutput.printMessage(stringLogic.replaseSymbol(text, k, symbol));
+					break;
+				case 2:
+					ConsoleOutput.printMessage(StringConstants.ENTER_STRING);
+					ConsoleOutput.printMessage(stringLogic.correctWord(ConsoleInput.enterString()));
+					break;
+				case 3:
+					ConsoleOutput.printMessage(StringConstants.ENTER_INTEGER);
+					int firstLength = ConsoleInput.enterPositiveInteger();
+					ConsoleOutput.printMessage(StringConstants.ENTER_STRING);
+					String substring = ConsoleInput.enterString();
+					ConsoleOutput.printMessage(stringLogic.replaceWordsWithSubstring(text, substring, firstLength));
+					break;
+				case 4:
+					ConsoleOutput.printMessage(stringLogic.addSpaces(stringLogic.removeUnnecessaryCharacters(text)));
+					break;
+				case 5:
+					ConsoleOutput.printMessage(StringConstants.ENTER_INTEGER);
+					int secondLength = ConsoleInput.enterPositiveInteger();
+					ConsoleOutput.printMessage(stringLogic.removeConsonantWords(text, secondLength));
+					break;
+			}
+		} while (choise != 0);
 		
 	}
 		

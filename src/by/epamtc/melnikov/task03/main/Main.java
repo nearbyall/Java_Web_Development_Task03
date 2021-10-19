@@ -37,9 +37,32 @@ public class Main {
 	
 	public static void runTask0302() {
 		
+		ConsoleOutput.printMessage(StringConstants.ENTER_ARRAY_CAPASITY);
+		int capasity = ConsoleInput.enterInteger();
+		
+		int[][] jaggedArray = new int[capasity][];
+		
+		ConsoleOutput.printMessage(StringConstants.ENTER_JAGGED_ARRAY_ELEMENTS);
+		for (int i = 0; i < capasity; i++) {
+			ConsoleOutput.printMessage(StringConstants.ENTER_ARRAY_CAPASITY);
+			jaggedArray[i] = new int[ConsoleInput.enterInteger()];
+			
+			for (int j = 0; j < jaggedArray[i].length; j++) {
+				ConsoleOutput.printMessage(StringConstants.ENTER_INTEGER);
+				jaggedArray[i][j] = ConsoleInput.enterInteger();
+			}
+		}
+		
+		ConsoleMenu.choiseProccesingTask0302(jaggedArray);
+		
 	}
 	
 	public static void runTask0303() {
+		
+		ConsoleOutput.printMessage(StringConstants.ENTER_STRING);
+		String text = ConsoleInput.enterString();
+		
+		ConsoleMenu.choiseProccesingTask0303(text);
 		
 	}
 	

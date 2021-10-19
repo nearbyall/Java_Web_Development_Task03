@@ -10,9 +10,12 @@ public abstract class StringConstants {
 	public static final String DESCENDING_SORT_BY_SUM = "DESCENDING_SORT_BY_SUM";
 	
 	public static final String ENTER_INTEGER = "Введите целое число: ";
-	public static final String ENTER_STRING = "Введите целое строку: ";
-	public static final String ENTER_ARRAY_CAPASITY = "Введите размерность массива";
-	public static final String ENTER_ARRAY_ELEMENTS = "Введите элементы массива";
+	public static final String ENTER_STRING = "Введите строку: ";
+	public static final String ENTER_ARRAY_CAPASITY = "Введите размерность массива: ";
+	public static final String ENTER_ARRAY_ELEMENTS = "Введите элементы массива: ";
+	public static final String ENTER_JAGGED_ARRAY_ELEMENTS = "Введите эелементы массива массивов: ";
+	public static final String ENTER_CHARACTER = "Введите символ: ";
+	public static final String ENTER_INDEX = "Введите индекс: ";
 	
 	public static final String MAX_ELEMENT = "\nМаксимальный элемент: ";
 	public static final String MIN_ELEMENT = "\nМинимальный элемент: ";

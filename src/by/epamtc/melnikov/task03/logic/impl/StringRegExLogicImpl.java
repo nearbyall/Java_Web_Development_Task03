@@ -11,16 +11,16 @@ public class StringRegExLogicImpl implements StringRegExLogic {
 
 	@Override
 	public String replaseSymbol(String text, int index, char symbol) {
-		
-		int replacementIndex = index - 1;
-		StringBuilder sb = new StringBuilder(text);
-		Pattern pattern = Pattern.compile("\\b\\w+");
-		Matcher matcher = pattern.matcher(text);
 
-		while (matcher.find()) {
-			if (replacementIndex <= (matcher.end() - matcher.start() - 1)) {
-				int i = matcher.start() + replacementIndex;
-				sb.replace(i, i + 1, Character.toString(symbol));
+		Pattern pattern = Pattern.compile("(\\W{" + index + ",})");
+
+		Matcher matcher = pattern.matcher(text);
+		StringBuilder sb = new StringBuilder(text);
+
+		while (matcher.find()){
+			
+			if(matcher.matches()){
+				sb.setCharAt(index - 1, symbol);
 			}
 		}
 
@@ -69,39 +69,6 @@ public class StringRegExLogicImpl implements StringRegExLogic {
 
 		return sb.toString();
     
-	}
-
-	@Override
-	public String addSpaces(String text) {
-		
-		StringBuilder sb = new StringBuilder(text);
-		
-		return sb.toString();
-		
-	}
-	
-	@Override
-	public String replaceWordsWithSubstring(String text, String replacement, int length) {
-		
-		LogicProvider logicProvider = LogicProvider.getInstance();
-		StringLogic stringLogic = logicProvider.getStringLogic();
-		
-		StringBuilder sb = new StringBuilder(text);
-		Pattern pattern = Pattern.compile("\\b\\w+");
-		Matcher matcher = pattern.matcher(text);
-		int replacedCount = 0;
-		int indexCorrection = replacement.length() - length + replacedCount;
-
-		while (matcher.find()) {
-			if (length == (matcher.end() - matcher.start())) {
-				stringLogic.replaceWithSubstring(matcher.start() + indexCorrection * replacedCount,
-						matcher.end() - 1 + indexCorrection * replacedCount, replacement, sb);
-				replacedCount++;
-			}
-		}
-
-		return sb.toString();
-        
 	}
 
 }
