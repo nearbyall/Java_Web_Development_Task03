@@ -40,7 +40,7 @@ public class Array {
 	public void add(int item) {
 		
 		if (pointer >= (array.length / 2)){
-            resize(array.length * 2);
+        	resize(array.length * 2);
         }
 		
         array[pointer++] = item;
@@ -81,17 +81,17 @@ public class Array {
 	private void rangeCheck(int index) throws RuntimeException {
 		
 		if (index >= pointer || index < 0) {
-            throw new IndexOutOfBoundsException(); 
-        }
+            		throw new IndexOutOfBoundsException(); 
+        	}
 		
 	}
 	
 	private void rangeCheck(int firstIndex, int secondIndex) throws RuntimeException {
 		
 		if (firstIndex >= pointer || secondIndex >= pointer ||
-			firstIndex < 0 || secondIndex < 0){
-            throw new IndexOutOfBoundsException(); 
-        }
+			firstIndex < 0 || secondIndex < 0) {
+            		throw new IndexOutOfBoundsException(); 
+        	}
 		
 	}
 	
