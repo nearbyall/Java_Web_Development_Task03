@@ -22,7 +22,5 @@ public class AscendingSortByMin implements BubbleSortSwap {
 		}
 		
 	}
-	
-	
 
 }

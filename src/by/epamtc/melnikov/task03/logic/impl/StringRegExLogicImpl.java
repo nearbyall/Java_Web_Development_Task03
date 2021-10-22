@@ -82,7 +82,7 @@ public class StringRegExLogicImpl implements StringRegExLogic {
 			sb.delete(0, lenght).insert(0, replasement);
             }
 
-        return sb.toString();
+		return sb.toString();
 
 	}
 

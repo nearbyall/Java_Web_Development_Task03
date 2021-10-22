@@ -15,8 +15,8 @@ public class JaggedArrayLogicImpl implements JaggedArrayLogic {
             	
 				bubbleSortSwap.bubbleSortSwap(jaggedArray, i, i + 1, isSorted);
 				
-            }
-        }
+			}
+		}
 	}
 
 	public void swap(int[][] jaggedArray, int firstIndex, int secondIndex) {
