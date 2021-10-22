@@ -7,6 +7,7 @@ import by.epamtc.melnikov.task03.logic.JaggedArrayLogic;
 import by.epamtc.melnikov.task03.logic.LogicProvider;
 import by.epamtc.melnikov.task03.logic.NumbersLogic;
 import by.epamtc.melnikov.task03.logic.StringLogic;
+import by.epamtc.melnikov.task03.logic.jagged_array_sort.impl.*;
 
 public abstract class ConsoleMenu {
 
@@ -95,27 +96,27 @@ public abstract class ConsoleMenu {
 			choise = ConsoleMenu.enterChoiseJaggedArrayMenu();
 			switch (choise) {
 				case 1:
-					jaggedArrayLogic.sortByParam(jaggedArray, StringConstants.ASCENDING_SORT_BY_MAX);
+					jaggedArrayLogic.sortByParam(jaggedArray, new AscendingSortByMax());
 					ConsoleOutput.printIntJaggedArray(jaggedArray);
 					break;
 				case 2:
-					jaggedArrayLogic.sortByParam(jaggedArray, StringConstants.ASCENDING_SORT_BY_MIN);
+					jaggedArrayLogic.sortByParam(jaggedArray, new AscendingSortByMin());
 					ConsoleOutput.printIntJaggedArray(jaggedArray);
 					break;
 				case 3:
-					jaggedArrayLogic.sortByParam(jaggedArray, StringConstants.ASCENDING_SORT_BY_SUM);
+					jaggedArrayLogic.sortByParam(jaggedArray, new AscendingSortBySum());
 					ConsoleOutput.printIntJaggedArray(jaggedArray);
 					break;
 				case 4:
-					jaggedArrayLogic.sortByParam(jaggedArray, StringConstants.DESCENDING_SORT_BY_MAX);
+					jaggedArrayLogic.sortByParam(jaggedArray, new DescendingSortByMax());
 					ConsoleOutput.printIntJaggedArray(jaggedArray);
 					break;
 				case 5:
-					jaggedArrayLogic.sortByParam(jaggedArray, StringConstants.DESCENDING_SORT_BY_MIN);
+					jaggedArrayLogic.sortByParam(jaggedArray, new DescendingSortByMin());
 					ConsoleOutput.printIntJaggedArray(jaggedArray);
 					break;
 				case 6:
-					jaggedArrayLogic.sortByParam(jaggedArray, StringConstants.DESCENDING_SORT_BY_SUM);
+					jaggedArrayLogic.sortByParam(jaggedArray, new DescendingSortBySum());
 					ConsoleOutput.printIntJaggedArray(jaggedArray);
 					break;
 			}
