@@ -3,6 +3,7 @@ package by.epamtc.melnikov.task03.logic.impl;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import by.epamtc.melnikov.task03.constant.StringConstants;
 import by.epamtc.melnikov.task03.logic.LogicProvider;
 import by.epamtc.melnikov.task03.logic.StringLogic;
 import by.epamtc.melnikov.task03.logic.StringRegExLogic;
@@ -30,28 +31,40 @@ public class StringRegExLogicImpl implements StringRegExLogic {
 	
 	@Override
 	public String removeUnnecessaryCharacters(String text) {
-		return text.replaceAll("[^A-Za-z ]", "");
+
+		StringBuilder sb = new StringBuilder(text);
+		Pattern pattern = Pattern.compile("([a-zA-Zа-яА-Я ])+");
+		Matcher matcher = pattern.matcher(sb);
+		sb = new StringBuilder();
+		
+		while (matcher.find()) {
+			sb.append(matcher.group());
+		}
+		
+		for (int i = 0; i < sb.length(); i++) {
+			if (i > 0 && sb.charAt(i) != ' ' && sb.charAt(i - 1) != ' ') {
+				sb.insert(i, ' ');
+			}	
+		}
+		
+		return sb.toString();
+		
 	}
 
 	@Override
 	public String removeConsonantWords(String text, int length) {
 		
-		LogicProvider logicProvider = LogicProvider.getInstance();
-		StringLogic stringLogic = logicProvider.getStringLogic();
-			
 		StringBuilder sb = new StringBuilder(text);
-		
-		Pattern pattern = Pattern.compile("\\b[qwrtpsdfghjklzxcvbnm]+");
-		Matcher matcher = pattern.matcher(text);
-		int indexCorrection = 0;
-
-		while (matcher.find()) {
-			stringLogic.replaceWithSubstring(matcher.start() - indexCorrection,
-					matcher.end() - indexCorrection, "", sb);
-			indexCorrection += length;
-		}
-
-		return sb.toString();
+		Pattern pattern = Pattern.compile("(^" + StringConstants.CONSONANT_LETTER_PATTERN +
+        		StringConstants.WORD_CHARACTER_PATTERN + "{" + (length - 1) + "," + (length - 1) + "})");
+        Matcher matcher = pattern.matcher(sb);      
+        sb = new StringBuilder();
+        
+        while (matcher.find()) {
+        	sb.append(matcher.group());
+        }
+        
+        return sb.toString();
         
 	}
 
@@ -74,14 +87,18 @@ public class StringRegExLogicImpl implements StringRegExLogic {
 	@Override
 	public String replaseWordWithSubstring(String text, int lenght, String replasement) {
 
-		Pattern pattern = Pattern.compile("\\b[А-Яа-я].{" + (lenght - 1) + "}\\b");
-
-		Matcher matcher = pattern.matcher(text);
 		StringBuilder sb = new StringBuilder(text);
-		while (matcher.find()){
-			sb.delete(0, lenght).insert(0, replasement);
-            }
-
+		Pattern pattern = Pattern.compile(StringConstants.WORD_CHARACTER_PATTERN + "+");
+		Matcher matcher = pattern.matcher(sb);
+        
+		int offset = 0;
+		while (matcher.find()) {
+			if (matcher.group().length() == lenght) {
+				sb.replace(matcher.start() + offset, matcher.end() + offset, replasement);
+				offset += replasement.length() - (matcher.end() - matcher.start());
+			}
+		}
+		        
 		return sb.toString();
 
 	}
