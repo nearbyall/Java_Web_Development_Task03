@@ -1,7 +1,9 @@
 package by.epamtc.melnikov.task03.constant;
 
-public abstract class StringConstants {
+public final class StringConstants {
 
+	private StringConstants() {}
+	
 	public static String WORD_CHARACTER_PATTERN = "[^\s.,!?:;'\"@#$%^&*()+=]";
 	public static String CONSONANT_LETTER_PATTERN = "(?ui:[^aeiouyаеёиоуыэюя])";
 	
